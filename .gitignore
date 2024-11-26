@@ -1,0 +1,38 @@
+# Ignore the following files and folders related to Unity build and settings
+[Ll]ibrary
+[Tt]emp/
+[Tt]argets/
+obj/
+
+# User-specific files
+[Dd]ebug/
+[Dd]eveloper/
+.idea/
+.vscode/
+
+# Unity generated folders for user preferences and settings
+UserSettings/
+# Avoid uploading the local user settings (e.g., editor window layout, etc.)
+
+# Avoid uploading build folders or platform-specific settings
+Build/
+
+# MacOS specific files
+.DS_Store
+
+# Windows specific files
+Thumbs.db
+
+# JetBrains Rider specific files
+.idea/
+
+# Visual Studio Code specific files
+.vscode/
+
+# Visual Studio files
+.vs/
+
+# User-specific settings files
+.vscode/settings.json
+
+Assets/PollyPrivateers
