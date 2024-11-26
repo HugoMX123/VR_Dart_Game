@@ -7,6 +7,7 @@ public class DartThrower : MonoBehaviour
     public float throwForce; // The force applied to the dart when thrown
     // Rotation of the dart when thrown
     public Vector3 throwRotation;
+    public Quaternion playerRotation;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class DartThrower : MonoBehaviour
 
     void Update()
     {
+        playerRotation = transform.rotation;
         // Check if spacebar is pressed
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -29,7 +31,7 @@ public class DartThrower : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(throwRotation);
 
         // Instantiate the dart at the throw point with the correct rotation
-        GameObject dart = Instantiate(dartPrefab, throwPoint.position, rotation);
+        GameObject dart = Instantiate(dartPrefab, throwPoint.position, rotation * playerRotation);
 
         // Add force to the dart's Rigidbody to simulate the throw
         Rigidbody rb = dart.GetComponent<Rigidbody>();

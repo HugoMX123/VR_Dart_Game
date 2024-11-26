@@ -2,21 +2,43 @@ using UnityEngine;
 
 public class DartboardPointSystem : MonoBehaviour
 {
-    // Define the sectors of the dartboard, each with a specific score
-    private int[] sectorScores = new int[20] {
-        6, 13, 4, 18, 1, 20, 5, 12, 9, 14, 11, 8, 16, 7, 19, 3, 17, 2, 15, 10
-    };
+    public GameObject DartboardGO;
+
+
+    public float scaleOfDartboard;
+    private float scaleOfDartboard_X;
+    private float scaleOfDartboard_Y; 
 
     // Define the radial distance thresholds for different zones
     private float bullseyeMaxRadius = 0.014f;  // Radius for bullseye (fixed score 50)
     private float outerBullseyeMaxRadius = 0.032f; // Radius for outer bullseye (fixed score 25)
     
     // Redefine other zones based on dartboard layout:
-    private float innerNormalZoneMaxRadius = 0.173f;  // Inner normal score zone
-    private float tripleZoneMaxRadius = 0.193f; // Triple score zone
-    private float outerNormalZoneMaxRadius = 0.286f; // Outer normal score zone
-    private float doubleZoneMaxRadius = 0.305f; // Double score zone
-    private float zeroZoneMaxRadius = 4f; // Zone for no score (outside dartboard)
+    private const float INNER_NORMAL_ZONE_MAX_RADIUS = 0.173f;  // Inner normal score zone
+    private const float TRIPLE_ZONE_MAX_RADIUS = 0.193f;        // Triple score zone
+    private const float OUTER_NORMAL_ZONE_MAX_RADIUS = 0.286f;  // Outer normal score zone
+    private const float DOUBLE_ZONE_MAX_RADIUS = 0.305f;        // Double score zone
+    private const float ZERO_ZONE_MAX_RADIUS = 4f;             // Zone for no score (outside dartboard)
+
+
+    void Start()
+    {
+        scaleOfDartboard_X = DartboardGO.transform.localScale.x;
+        scaleOfDartboard_Y = DartboardGO.transform.localScale.y;
+
+        if(scaleOfDartboard_X == scaleOfDartboard_Y)
+        {
+            Debug.Log("Scale is okay");
+            scaleOfDartboard = scaleOfDartboard_X;
+        }
+    }
+
+    // Define the sectors of the dartboard, each with a specific score
+    private int[] sectorScores = new int[20] {
+        6, 13, 4, 18, 1, 20, 5, 12, 9, 14, 11, 8, 16, 7, 19, 3, 17, 2, 15, 10
+    };
+
+
 
     // Function to convert polar coordinates (degrees and radius) to Cartesian and determine the score
     public int GetScoreFromPolar(float degrees, float r)
@@ -57,23 +79,23 @@ public class DartboardPointSystem : MonoBehaviour
     // Function to determine the radial zone score based on the distance from the center (r)
     private int GetRadialScore(float r)
     {
-        if (r <= innerNormalZoneMaxRadius)
+        if (r <= INNER_NORMAL_ZONE_MAX_RADIUS * scaleOfDartboard)
         {
             return 1; // Inner normal score zone
         }
-        else if (r <= tripleZoneMaxRadius)
+        else if (r <= TRIPLE_ZONE_MAX_RADIUS * scaleOfDartboard)
         {
             return 3; // Triple score zone
         }
-        else if (r <= outerNormalZoneMaxRadius)
+        else if (r <= OUTER_NORMAL_ZONE_MAX_RADIUS * scaleOfDartboard)
         {
             return 1; // Outer normal score zone
         }
-        else if (r <= doubleZoneMaxRadius)
+        else if (r <= DOUBLE_ZONE_MAX_RADIUS * scaleOfDartboard)
         {
             return 2; // Double score zone
         }
-        else if (r <= zeroZoneMaxRadius)
+        else if (r <= ZERO_ZONE_MAX_RADIUS * scaleOfDartboard)
         {
             return 0; // No score (outside dartboard)
         }
