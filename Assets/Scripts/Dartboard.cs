@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Dartboard : MonoBehaviour
 {
     private BoxCollider boxCollider;
     public bool invertAngle = false;  // Boolean flag to invert the angle direction
+    public event Action<int> OnHit;
 
     private void Start()
     {
@@ -50,10 +52,14 @@ public class Dartboard : MonoBehaviour
             DartboardPointSystem pointSystem = GetComponent<DartboardPointSystem>();
 
             // Calculate the score based on the polar coordinates
-            int score = pointSystem.GetScoreFromPolar(thetaDegrees, r);
+            int points = pointSystem.GetScoreFromPolar(thetaDegrees, r);
 
             // Print the score to the console
-            Debug.Log("Score: " + score);
+            Debug.Log("Score: " + points);
+
+            OnHit?.Invoke(points);
+
+
         }
     }
 }

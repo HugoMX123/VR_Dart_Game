@@ -4,6 +4,10 @@
 [Tt]argets/
 obj/
 
+# Ignore Unity log files
+[Ll]ogs/
+
+
 # User-specific files
 [Dd]ebug/
 [Dd]eveloper/

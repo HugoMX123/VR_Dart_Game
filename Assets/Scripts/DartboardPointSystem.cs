@@ -3,10 +3,11 @@ using UnityEngine;
 public class DartboardPointSystem : MonoBehaviour
 {
     public GameObject DartboardGO;
+    
 
     // Define the radial distance thresholds for different zones
-    private float bullseyeMaxRadius = 0.014f;  // Radius for bullseye (fixed score 50)
-    private float outerBullseyeMaxRadius = 0.032f; // Radius for outer bullseye (fixed score 25)
+    private const float BULLSEYE_MAX_RADIUS = 0.014f;  // Radius for bullseye (fixed score 50)
+    private const float BULL_MAX_RADIUS = 0.032f; // Radius for outer bullseye (fixed score 25)
     
     // Redefine other zones based on dartboard layout:
     private const float INNER_NORMAL_ZONE_MAX_RADIUS = 0.173f;  // Inner normal score zone
@@ -38,14 +39,14 @@ public class DartboardPointSystem : MonoBehaviour
         sector = sector % 20;
 
         // Check if the dart is in the bullseye or outer bullseye (fixed scores)
-        if (r <= bullseyeMaxRadius)
+        if (r <= BULLSEYE_MAX_RADIUS)
         {
-            Debug.Log("Bullseye!");
+            Debug.Log("BULLSEYE!");
             return 50; // Bullseye score
         }
-        else if (r <= outerBullseyeMaxRadius)
+        else if (r <= BULL_MAX_RADIUS)
         {
-            Debug.Log("Outer Bullseye!");
+            Debug.Log("BULL!");
             return 25; // Outer bullseye score
         }
         else
@@ -62,7 +63,6 @@ public class DartboardPointSystem : MonoBehaviour
     // Function to determine the radial zone score based on the distance from the center (r)
     private int GetRadialScore(float r)
     {
-        Debug.Log("r:" + r);
         if (r <= INNER_NORMAL_ZONE_MAX_RADIUS)
         {
             return 1; // Inner normal score zone
