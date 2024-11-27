@@ -4,11 +4,6 @@ public class DartboardPointSystem : MonoBehaviour
 {
     public GameObject DartboardGO;
 
-
-    public float scaleOfDartboard;
-    private float scaleOfDartboard_X;
-    private float scaleOfDartboard_Y; 
-
     // Define the radial distance thresholds for different zones
     private float bullseyeMaxRadius = 0.014f;  // Radius for bullseye (fixed score 50)
     private float outerBullseyeMaxRadius = 0.032f; // Radius for outer bullseye (fixed score 25)
@@ -20,18 +15,6 @@ public class DartboardPointSystem : MonoBehaviour
     private const float DOUBLE_ZONE_MAX_RADIUS = 0.305f;        // Double score zone
     private const float ZERO_ZONE_MAX_RADIUS = 4f;             // Zone for no score (outside dartboard)
 
-
-    void Start()
-    {
-        scaleOfDartboard_X = DartboardGO.transform.localScale.x;
-        scaleOfDartboard_Y = DartboardGO.transform.localScale.y;
-
-        if(scaleOfDartboard_X == scaleOfDartboard_Y)
-        {
-            Debug.Log("Scale is okay");
-            scaleOfDartboard = scaleOfDartboard_X;
-        }
-    }
 
     // Define the sectors of the dartboard, each with a specific score
     private int[] sectorScores = new int[20] {
@@ -79,23 +62,24 @@ public class DartboardPointSystem : MonoBehaviour
     // Function to determine the radial zone score based on the distance from the center (r)
     private int GetRadialScore(float r)
     {
-        if (r <= INNER_NORMAL_ZONE_MAX_RADIUS * scaleOfDartboard)
+        Debug.Log("r:" + r);
+        if (r <= INNER_NORMAL_ZONE_MAX_RADIUS)
         {
             return 1; // Inner normal score zone
         }
-        else if (r <= TRIPLE_ZONE_MAX_RADIUS * scaleOfDartboard)
+        else if (r <= TRIPLE_ZONE_MAX_RADIUS)
         {
             return 3; // Triple score zone
         }
-        else if (r <= OUTER_NORMAL_ZONE_MAX_RADIUS * scaleOfDartboard)
+        else if (r <= OUTER_NORMAL_ZONE_MAX_RADIUS)
         {
             return 1; // Outer normal score zone
         }
-        else if (r <= DOUBLE_ZONE_MAX_RADIUS * scaleOfDartboard)
+        else if (r <= DOUBLE_ZONE_MAX_RADIUS)
         {
             return 2; // Double score zone
         }
-        else if (r <= ZERO_ZONE_MAX_RADIUS * scaleOfDartboard)
+        else if (r <= ZERO_ZONE_MAX_RADIUS)
         {
             return 0; // No score (outside dartboard)
         }
@@ -104,7 +88,6 @@ public class DartboardPointSystem : MonoBehaviour
             return 0; // Outside the dartboard (no score)
         }
     }
-}
-
+} 
 
 
