@@ -11,6 +11,6 @@ A simple dart game created in Unity with two modes: **Practice Mode** and **AI M
 
 Make sure you have the following installed:
 
-- [Unity](https://unity.com/) (version used in this project: `2022.19.f1` or above)
+- [Unity](https://unity.com/) (version used in this project: `2022.3.19f1` or above)
 - [TextMeshPro](https://assetstore.unity.com/packages/essentials/beta-projects/textmesh-pro-84126) (for UI text)
 - [Pirate Tavern from Unity Asset Store] (https://assetstore.unity.com/packages/3d/environments/fantasy/pirate-tavern-113463)
