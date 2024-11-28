@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public enum GameMode
 {
     Practice,
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject DartboardGO;
     public PlayerManager playerManager;
+    public Player player;
     public AIPlayer aiPlayer;
     public Scoreboard scoreboard;
     public UIManager uiManager;
@@ -80,6 +82,16 @@ public class GameManager : MonoBehaviour
 
     public void validateHit(int points)
     {
-        //Handle the points here
+        if(currentMode == GameMode.Practice)
+        {
+
+            
+        }
+        else if(currentMode == GameMode.AI)
+        {
+            Debug.Log("AI Mode" + points);
+        }
+        
     }
+
 }

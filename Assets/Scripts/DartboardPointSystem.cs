@@ -40,13 +40,11 @@ public class DartboardPointSystem : MonoBehaviour
 
         // Check if the dart is in the bullseye or outer bullseye (fixed scores)
         if (r <= BULLSEYE_MAX_RADIUS)
-        {
-            Debug.Log("BULLSEYE!");
+        {   
             return 50; // Bullseye score
         }
         else if (r <= BULL_MAX_RADIUS)
         {
-            Debug.Log("BULL!");
             return 25; // Outer bullseye score
         }
         else

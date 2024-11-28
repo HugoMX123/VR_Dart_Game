@@ -6,8 +6,9 @@ public class Scoreboard : MonoBehaviour
 {
     public GameObject playerScoreTxtGO;
     public GameObject aiScoreTxtGO;
-    private TMP_Text playerScoreTxt;
-    private TMP_Text  aiScoreTxt;
+    public TMP_Text playerScoreTxt;
+    public TMP_Text  aiScoreTxt;
+    public Player currentPlayer;
 
 
 
@@ -21,17 +22,19 @@ public class Scoreboard : MonoBehaviour
 
     public void InitializeScoreboard()
     {
-        UpdateScoreboard();
+       // UpdateScoreboard();
     }
 
     public void UpdateScoreboard()
     {
-        Player currentPlayer = GameManager.Instance.playerManager.player;
+        currentPlayer = GameManager.Instance.playerManager.player;
+        Debug.Log(currentPlayer.score);
         AIPlayer aiPlayer = GameManager.Instance.playerManager.aiPlayer;
 
         playerScoreTxt.text = "Score: " + currentPlayer.score.ToString();
         aiScoreTxt.text = "Score: " + aiPlayer.score.ToString();
     }
+
 
     public void UpdateModeUI(string mode)
     {

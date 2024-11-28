@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class DartThrower : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class DartThrower : MonoBehaviour
     // Rotation of the dart when thrown
     public Vector3 throwRotation;
     public Quaternion playerRotation;
+    public static event Action OnDartThrown;
 
     void Start()
     {
@@ -39,5 +41,7 @@ public class DartThrower : MonoBehaviour
         {
             rb.AddForce(throwPoint.forward * throwForce);
         }
+
+        OnDartThrown?.Invoke(); // Event
     }
 }
