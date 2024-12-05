@@ -3,7 +3,9 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
+    public GameObject scoreboard;
     //public Text gameOverText;
+    
 
     public void ShowGameOver()
     {

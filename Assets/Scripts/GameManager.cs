@@ -1,11 +1,7 @@
 using UnityEngine;
 
 
-public enum GameMode
-{
-    Practice,
-    AI
-}
+
 
 public class GameManager : MonoBehaviour
 {
@@ -27,11 +23,13 @@ public class GameManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        
     }
 
     private void Start()
     {
-        DartboardGO.GetComponent<Dartboard>().OnHit += validateHit;
+        DartboardGO.GetComponent<Dartboard>().OnHit += DartHit;
         StartGame();
     }
 
@@ -60,11 +58,17 @@ public class GameManager : MonoBehaviour
         StartGame(); // Restart game for new mode
     }
 
+
     private void PracticeMode()
     {
         // In Practice Mode, the player just throws darts with no opponent
         uiManager.UpdateTurnUI("Player (Practice Mode)");
         playerManager.StartPlayerTurn();
+
+        if (playerManager.player.score == 0)
+        {
+            
+        }
 
     }
 
@@ -80,18 +84,9 @@ public class GameManager : MonoBehaviour
         uiManager.ShowGameOver();
     }
 
-    public void validateHit(int points)
+    public void DartHit(int points,scoreArea areaHit)
     {
-        if(currentMode == GameMode.Practice)
-        {
-
-            
-        }
-        else if(currentMode == GameMode.AI)
-        {
-            Debug.Log("AI Mode" + points);
-        }
-        
+        playerManager.UpdateScore(points); // Only If its allowed on the gamemode 
     }
 
 }

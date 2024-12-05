@@ -202,7 +202,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.5246, y: 2.3137}
+  m_AnchoredPosition: {x: 0.32999992, y: 2.3137}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48897399
@@ -3432,6 +3432,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4958439616117198, guid: 94718fea2e5f321498e60e6e6dd036b0, type: 3}
   m_PrefabInstance: {fileID: 1066089889}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &796394862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796394864}
+  - component: {fileID: 796394863}
+  m_Layer: 0
+  m_Name: DartBoardCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!20 &796394863
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796394862}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: 8914457b6261e4840b3f44357279e4fc, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &796394864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796394862}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 2.51, y: 1.63, z: -5.76}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &817764194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3440,17 +3523,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2052430145836312211, guid: 5c2d0c37d31604041aba6310b5978e5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089860582188733806, guid: 5c2d0c37d31604041aba6310b5978e5b, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7477804589051357554, guid: 5c2d0c37d31604041aba6310b5978e5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.576663
+      value: 0.24599981
       objectReference: {fileID: 0}
     - target: {fileID: 7477804589051357554, guid: 5c2d0c37d31604041aba6310b5978e5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.32599998
+      value: 0.042
       objectReference: {fileID: 0}
     - target: {fileID: 7477804589051357554, guid: 5c2d0c37d31604041aba6310b5978e5b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5743321
+      value: -0.785
       objectReference: {fileID: 0}
     - target: {fileID: 7477804589051357554, guid: 5c2d0c37d31604041aba6310b5978e5b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3484,8 +3575,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: FP Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    - target: {fileID: 8378858582199148950, guid: 5c2d0c37d31604041aba6310b5978e5b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378858582199148950, guid: 5c2d0c37d31604041aba6310b5978e5b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378858582199148950, guid: 5c2d0c37d31604041aba6310b5978e5b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9046155894899144213, guid: 5c2d0c37d31604041aba6310b5978e5b, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 8025298986987778543, guid: 5c2d0c37d31604041aba6310b5978e5b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7660559061355815009, guid: 5c2d0c37d31604041aba6310b5978e5b, type: 3}
@@ -5627,6 +5732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DartboardGO: {fileID: 708772279}
   playerManager: {fileID: 1371800669}
+  player: {fileID: 0}
   aiPlayer: {fileID: 2134086612}
   scoreboard: {fileID: 1500273700}
   uiManager: {fileID: 360247883}
@@ -5814,7 +5920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.5246, y: 2.3137}
+  m_AnchoredPosition: {x: 0.33, y: 2.3137}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1427835474
@@ -6247,6 +6353,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScoreTxtGO: {fileID: 1388991262}
   aiScoreTxtGO: {fileID: 48897397}
+  playerScoreTxt: {fileID: 0}
+  aiScoreTxt: {fileID: 0}
+  currentPlayer: {fileID: 0}
+  aiPlayer: {fileID: 0}
 --- !u!4 &1500273701
 Transform:
   m_ObjectHideFlags: 0
@@ -8388,7 +8498,7 @@ Transform:
   m_GameObject: {fileID: 2090521360}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.38, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8576,3 +8686,4 @@ SceneRoots:
   - {fileID: 311263355}
   - {fileID: 159243655}
   - {fileID: 1500273701}
+  - {fileID: 796394864}

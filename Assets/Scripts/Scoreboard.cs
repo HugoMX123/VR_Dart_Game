@@ -9,6 +9,7 @@ public class Scoreboard : MonoBehaviour
     public TMP_Text playerScoreTxt;
     public TMP_Text  aiScoreTxt;
     public Player currentPlayer;
+    public AIPlayer aiPlayer;
 
 
 
@@ -27,11 +28,19 @@ public class Scoreboard : MonoBehaviour
 
     public void UpdateScoreboard()
     {
-        currentPlayer = GameManager.Instance.playerManager.player;
-        Debug.Log(currentPlayer.score);
-        AIPlayer aiPlayer = GameManager.Instance.playerManager.aiPlayer;
+        updatePlayerScore();
+        updateAIScore();
+    }
 
+    public void updatePlayerScore()
+    {
+        currentPlayer = GameManager.Instance.playerManager.player;
         playerScoreTxt.text = "Score: " + currentPlayer.score.ToString();
+    }
+
+    public void updateAIScore()
+    {
+        aiPlayer = GameManager.Instance.playerManager.aiPlayer;
         aiScoreTxt.text = "Score: " + aiPlayer.score.ToString();
     }
 
