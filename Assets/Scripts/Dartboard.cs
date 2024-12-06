@@ -54,6 +54,8 @@ public class Dartboard : MonoBehaviour
             // Calculate the score based on the polar coordinates
             int points = pointSystem.GetScoreFromPolar(thetaDegrees, r);
 
+            Debug.Log("Score: " + points);
+
             OnHit?.Invoke(points);
 
 

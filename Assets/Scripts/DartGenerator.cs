@@ -20,7 +20,7 @@ public class DartGenerator : MonoBehaviour
     void Start()
     {
         pickupDistance = 0.12f;
-        pinchThresholdPickup = 0.6f;
+        pinchThresholdPickup = 0.5f;
 
         generatedDartPicked = false;
         weCanGenerate = true;

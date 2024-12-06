@@ -44,21 +44,27 @@ public class Dart : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        DartMove dm = GetComponent<DartMove>();
+        dm.isFlying = false;
+        rb.isKinematic = true;  // Freeze the dart after the collision. Also helps if its not on the target so it doesnt get the push anymore
+        isRotating = false;  // Stop the rotation
         // Check if the dart collided with the dartboard
         if (collision.gameObject.CompareTag("Dartboard"))
         {
-            Debug.Log("asadas");
             // Stop the dart immediately
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
-            rb.isKinematic = true;  // Freeze the dart after the collision
-            isRotating = false;  // Stop the rotation
 
-            // If the shouldDisappear flag is true, start the disappearance process
-            if (shouldDisappear)
-            {
-                StartCoroutine(DisappearAfterDelay(timeToDestroy));  // Dart will disappear after a set time
-            }
+        }
+        else {
+            rb.useGravity = true;
+            rb.isKinematic = false;
+            rb.AddForce(Vector3.down * 50f, ForceMode.Acceleration);
+        }   
+        // If the shouldDisappear flag is true, start the disappearance process
+        if (shouldDisappear)
+        {
+            StartCoroutine(DisappearAfterDelay(timeToDestroy));  // Dart will disappear after a set time
         }
     }
 

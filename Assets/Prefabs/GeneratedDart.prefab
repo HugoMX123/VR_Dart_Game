@@ -124,10 +124,14 @@ MonoBehaviour:
   pickupDistance: 0
   pinchThresholdPickup: 0
   pinchThresholdRelease: 0
+  isPickedUp: 0
   dGenerator: {fileID: 0}
   useAimMode: 0
   useAdaptativeForce: 0
   handTracker: {fileID: 0}
+  tmp1: -90
+  tmp2: 0
+  tmp3: -135
 --- !u!114 &151671169722366581
 MonoBehaviour:
   m_ObjectHideFlags: 0
