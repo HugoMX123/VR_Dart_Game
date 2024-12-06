@@ -34,7 +34,8 @@ public class DartThrower : MonoBehaviour
 
         // Instantiate the dart at the throw point with the correct rotation
         GameObject dart = Instantiate(dartPrefab, throwPoint.position, rotation * playerRotation);
-
+        DartMove dm = dart.GetComponent<DartMove>();
+        dm.isFlying = true;
         // Add force to the dart's Rigidbody to simulate the throw
         Rigidbody rb = dart.GetComponent<Rigidbody>();
         if (rb != null)

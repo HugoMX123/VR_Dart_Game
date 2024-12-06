@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 7889466913268720213}
   - component: {fileID: 4649759142727854541}
   - component: {fileID: 8648811937054112645}
-  - component: {fileID: -171641651571036258}
+  - component: {fileID: 2664225357118188107}
+  - component: {fileID: 8350287051944840246}
+  - component: {fileID: 151671169722366581}
   m_Layer: 0
-  m_Name: Dart
+  m_Name: GeneratedDart
   m_TagString: Dart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +59,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -85,7 +87,48 @@ CapsuleCollider:
   m_Height: 0.1
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0.05}
---- !u!114 &-171641651571036258
+--- !u!114 &2664225357118188107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962310285195973561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b3763add1152ac4aab69357a419a664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HandToIgnoreGrabs: 2
+  _disableAllGrabbing: 1
+  HandToIgnoreCollisions: 2
+  _disableAllHandCollisions: 1
+  _disableCollisionOnChildren: 1
+--- !u!114 &8350287051944840246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962310285195973561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98fab090e2d93cd45b2d2133c62223a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 4649759142727854541}
+  throwForce: 0
+  gravityUnit: 0
+  gravity: 0
+  isFlying: 0
+  pickupDistance: 0
+  pinchThresholdPickup: 0
+  pinchThresholdRelease: 0
+  dGenerator: {fileID: 0}
+  useAimMode: 0
+  useAdaptativeForce: 0
+  handTracker: {fileID: 0}
+--- !u!114 &151671169722366581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,9 +141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroy: 8
-  shouldDisappear: 1
-  minRotationSpeed: 360
-  maxRotationSpeed: 720
+  shouldDisappear: 0
+  minRotationSpeed: 0
+  maxRotationSpeed: 0
 --- !u!1001 &134706841526341470
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -47,6 +47,7 @@ public class Dart : MonoBehaviour
         // Check if the dart collided with the dartboard
         if (collision.gameObject.CompareTag("Dartboard"))
         {
+            Debug.Log("asadas");
             // Stop the dart immediately
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
