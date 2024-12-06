@@ -1,5 +1,7 @@
-using UnityEngine;
-using System.Collections;
+using UnityEngine;  // For MonoBehaviour, Rigidbody, and other Unity-related classes
+using System;  // For Action<T> delegate
+using System.Collections;  // For IEnumerator and coroutines
+
 
 public class Dart : MonoBehaviour
 {
@@ -28,7 +30,7 @@ public class Dart : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
         // Randomly set the rotation speed when the dart is instantiated
-        rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
+        rotationSpeed = UnityEngine.Random.Range(minRotationSpeed, maxRotationSpeed);
         isRotating = true; // Enable rotation immediately
     }
 
@@ -44,21 +46,18 @@ public class Dart : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Check if the dart collided with the dartboard
-        if (collision.gameObject.CompareTag("Dartboard"))
+        if(!collision.gameObject.CompareTag("Dartboard"))
         {
-            // Stop the dart immediately
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.isKinematic = true;  // Freeze the dart after the collision
-            isRotating = false;  // Stop the rotation
+            // 
+        }
 
+        stickTheDart();
+            
             // If the shouldDisappear flag is true, start the disappearance process
             if (shouldDisappear)
             {
                 StartCoroutine(DisappearAfterDelay(timeToDestroy));  // Dart will disappear after a set time
             }
-        }
     }
 
     // Coroutine to make the dart disappear after a delay
@@ -69,6 +68,15 @@ public class Dart : MonoBehaviour
 
         // Destroy the dart object
         Destroy(gameObject);
+    }
+
+    private void stickTheDart()
+    {
+        // Stop the dart immediately
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;  // Freeze the dart after the collision
+        isRotating = false;  // Stop the rotation
     }
 }
 

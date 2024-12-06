@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Dart
   - Dartboard
+  - Sticky
   layers:
   - Default
   - TransparentFX

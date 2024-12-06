@@ -6,7 +6,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    
     public GameObject DartboardGO;
     public PlayerManager playerManager;
     public Player player;
@@ -30,10 +29,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         DartboardGO.GetComponent<Dartboard>().OnHit += DartHit;
+        uiManager.hideAllWins();
         StartGame();
     }
 
-    
+
     public void StartGame()
     {
         playerManager.ResetPlayers();
@@ -65,11 +65,6 @@ public class GameManager : MonoBehaviour
         uiManager.UpdateTurnUI("Player (Practice Mode)");
         playerManager.StartPlayerTurn();
 
-        if (playerManager.player.score == 0)
-        {
-            
-        }
-
     }
 
     private void AIStartGame()
@@ -81,12 +76,53 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        uiManager.ShowGameOver();
+        // Handle the Start again and more
     }
 
-    public void DartHit(int points,scoreArea areaHit)
+    public void DartHit(int points, scoreArea areaHit)
     {
-        playerManager.UpdateScore(points); // Only If its allowed on the gamemode 
-    }
+        if (currentMode == GameMode.Practice)
+        {
+            // Prevent invalid scoring: Points scored cannot exceed current score.
+            if (points > playerManager.player.score)
+            {
+                Debug.Log("Invalid points: Cannot score more than current score.");
+                return;
+            }
 
+            // Prevent the score from dropping below 2 (special case).
+            if (playerManager.player.score - points < 2 && playerManager.player.score - points != 0)
+            {
+                Debug.Log("Invalid throw: Remaining score cannot be less than 2 unless it's exactly 0 with a double.");
+                return;
+            }
+
+            // Check if the player wins.
+            if (points == playerManager.player.score)
+            {
+                if (areaHit == scoreArea.Double)
+                {
+                    Debug.Log("Player Wins!");
+                    playerManager.UpdateScore(points); // Update to 0
+                    uiManager.showPlayerWins();
+                    playerManager.player.dartThrower.SetCanThrow(false);
+                    EndGame();
+                    return;
+                }
+                else
+                {
+                    Debug.Log("Needs to be a double to win.");
+                    return;
+                }
+            }
+
+            // Update the player's score for valid throws.
+            playerManager.UpdateScore(points);
+            Debug.Log($"Score updated. Remaining score: {playerManager.player.score}");
+        }
+        else if(currentMode == GameMode.AI)
+        {
+            // Other Mode vs Computer
+        }
+    }
 }
