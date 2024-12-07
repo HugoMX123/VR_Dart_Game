@@ -10,6 +10,7 @@ public class DartThrower : MonoBehaviour
     public Vector3 throwRotation;
     public Quaternion playerRotation;
     public static event Action OnDartThrown;
+    private bool canThrow = true;
 
     void Start()
     {
@@ -29,6 +30,10 @@ public class DartThrower : MonoBehaviour
 
     void ThrowDart()
     {
+        if(!canThrow)
+        {
+            return;
+        }
         // Convert the throwRotation to a Quaternion
         Quaternion rotation = Quaternion.Euler(throwRotation);
 
@@ -43,5 +48,15 @@ public class DartThrower : MonoBehaviour
         }
 
         OnDartThrown?.Invoke(); // Event
+    }
+
+    public void SetCanThrow(bool value)
+    {
+        canThrow = value;
+    }
+
+    public bool getCantThrow()
+    {
+        return canThrow;
     }
 }

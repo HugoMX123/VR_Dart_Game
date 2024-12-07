@@ -2,21 +2,37 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject gameOverPanel;
     public GameObject scoreboard;
-    //public Text gameOverText;
+    public GameObject playerWinsTxt;
+    public GameObject aiWinsTxt;
+
+    public void showPlayerWins()
+    {
+        playerWinsTxt.SetActive(true);
+    }
+
+    public void showAIWins()
+    {
+        aiWinsTxt.SetActive(true);
+    }
+
+    public void hidePlayerWins()
+    {
+        playerWinsTxt.SetActive(false);
+    }
+
+    public void hideAIWins()
+    {
+        aiWinsTxt.SetActive(false);
+    }
+
+    public void hideAllWins()
+    {
+        hidePlayerWins();
+        hideAIWins();
+    }
+
     
-
-    public void ShowGameOver()
-    {
-        gameOverPanel.SetActive(true);
-        //gameOverText.text = "Game Over!";
-    }
-
-    public void HideGameOver()
-    {
-        gameOverPanel.SetActive(false);
-    }
 
     public void UpdateTurnUI(string turn)
     {
