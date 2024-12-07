@@ -18,6 +18,7 @@ public class Dart : MonoBehaviour
 
     private float rotationSpeed; // Rotation speed will be randomized
     private bool isRotating = false; // Flag to track whether the dart should rotate
+    private bool hasBounced = false;
 
     private void Start()
     {
@@ -46,12 +47,12 @@ public class Dart : MonoBehaviour
     {
         DartMove dm = GetComponent<DartMove>();
         dm.isFlying = false;
-        rb.isKinematic = true;  // Freeze the dart after the collision. Also helps if its not on the target so it doesnt get the push anymore
         isRotating = false;  // Stop the rotation
         // Check if the dart collided with the dartboard
         if (collision.gameObject.CompareTag("Dartboard"))
         {
             // Stop the dart immediately
+            rb.isKinematic = true;  // Freeze the dart after the collision. Also helps if its not on the target so it doesnt get the push anymore
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
 
@@ -59,8 +60,10 @@ public class Dart : MonoBehaviour
         else {
             rb.useGravity = true;
             rb.isKinematic = false;
-            rb.AddForce(Vector3.down * 50f, ForceMode.Acceleration);
+            rb.AddForce(Vector3.down * 30f, ForceMode.Acceleration);
         }   
+
+
         // If the shouldDisappear flag is true, start the disappearance process
         if (shouldDisappear)
         {

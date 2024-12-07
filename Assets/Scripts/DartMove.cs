@@ -37,11 +37,13 @@ public class DartMove : MonoBehaviour
         isPickedUp = false;
 
         useAimMode = false;
-        useAdaptativeForce = true;
+        useAdaptativeForce = false;
         
         gravityUnit = 1.3f; //1.035f;
         gravity = 7.0f ;//2.5f;
         defaultThrowForce = 110; //55
+
+        throwForce = defaultThrowForce;
 
         leapController = new Controller();
     }
@@ -57,7 +59,13 @@ public class DartMove : MonoBehaviour
             Finger[] fingers = hand.fingers;
             Finger thumb = hand.fingers[0];
             Vector3 thumbCoordinatesLocal = thumb.TipPosition;
-            Vector3 thumbCoordinateGlobal = handTracker.transform.TransformPoint(thumbCoordinatesLocal);
+            Vector3 thumbCoordinateGlobal;
+            if (handTracker) {
+                thumbCoordinateGlobal = handTracker.transform.TransformPoint(thumbCoordinatesLocal);
+            }
+            else {
+                thumbCoordinateGlobal = thumbCoordinatesLocal;
+            }
             
             float distance = Vector3.Distance(dartPosition, thumbCoordinateGlobal);
 
@@ -74,12 +82,9 @@ public class DartMove : MonoBehaviour
             else if (isPickedUp){ // Throw the dart
                 
                 if (useAdaptativeForce){
-                        Vector3 handVelocity = hand.PalmVelocity;
-                        throwForce = (Mathf.Abs(handVelocity[0])+Mathf.Abs(handVelocity[1])+Mathf.Abs(handVelocity[2]))   * defaultThrowForce;
-                        Debug.Log("throwForce: " + throwForce + "multiplier: " + Mathf.Abs(handVelocity[0])+Mathf.Abs(handVelocity[1])+Mathf.Abs(handVelocity[2]));
-                    }
-                else{
-                    throwForce = defaultThrowForce;
+                    Vector3 handVelocity = hand.PalmVelocity;
+                    throwForce = (Mathf.Abs(handVelocity[0])+Mathf.Abs(handVelocity[1])+Mathf.Abs(handVelocity[2]))   * defaultThrowForce;
+                    Debug.Log("throwForce: " + throwForce + "multiplier: " + Mathf.Abs(handVelocity[0])+Mathf.Abs(handVelocity[1])+Mathf.Abs(handVelocity[2]));
                 }
                 ReleaseDart();
                 Debug.Log("Released the dart.");
