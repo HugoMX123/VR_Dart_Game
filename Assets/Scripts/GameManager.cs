@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameObject DartboardGO;
     public PlayerManager playerManager;
-    public Player player;
-    public AIPlayer aiPlayer;
     public Scoreboard scoreboard;
     public UIManager uiManager;
     
@@ -123,6 +121,10 @@ public class GameManager : MonoBehaviour
         else if(currentMode == GameMode.AI)
         {
             // Other Mode vs Computer
+
+            // switch case for player and AI
+
+
         }
     }
 }

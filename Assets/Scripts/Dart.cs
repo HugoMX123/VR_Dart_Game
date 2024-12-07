@@ -45,13 +45,8 @@ public class Dart : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
-    {
-        if(!collision.gameObject.CompareTag("Dartboard"))
-        {
-            // 
-        }
-
-        stickTheDart();
+    { 
+            stickTheDart();  
             
             // If the shouldDisappear flag is true, start the disappearance process
             if (shouldDisappear)

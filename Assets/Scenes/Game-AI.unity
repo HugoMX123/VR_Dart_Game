@@ -1562,8 +1562,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1fba78f3924714ea2f858fd1b103ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 279394008}
   scoreboard: {fileID: 0}
+  playerWinsTxt: {fileID: 0}
+  aiWinsTxt: {fileID: 0}
 --- !u!1001 &365989285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3449,7 +3450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &796394863
 Camera:
   m_ObjectHideFlags: 0
@@ -5028,6 +5029,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Hugo
   score: 0
+  dartThrower: {fileID: 0}
+  dartsLeft: 0
 --- !u!1001 &1199432908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8678,16 +8681,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2134086611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6dc0f30fdb1b7498c92c07fd8488d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 25afc4efe237bfe45919ecbc20bcc7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dartPrefab: {fileID: 962310285195973561, guid: c587e45a9e169cc488d09b4ccee02c59, type: 3}
+  dartPrefab: {fileID: 0}
   throwPoint: {fileID: 0}
-  throwForce: 800
-  throwRotation: {x: 0, y: 180, z: 0}
+  throwForce: 0
+  throwRotation: {x: 0, y: 0, z: 0}
   playerRotation: {x: 0, y: 0, z: 0, w: 0}
   throwBoardRadius: 0
-  dartCPULevel: 2
+  dartCPULevel: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

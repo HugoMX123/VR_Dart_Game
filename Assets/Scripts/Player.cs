@@ -6,10 +6,17 @@ public class Player : MonoBehaviour
     public int score = 301;
     public DartThrower dartThrower; // Reference to the DartThrower script
 
+    [SerializeField]
+    private int dartsLeft; // Number of darts the player has left
+
     void Start()
     {
+        dartsLeft =3; // Set the number of darts the player has left to 3
         // Get the DartThrower component attached to the player
         dartThrower = GetComponent<DartThrower>();
+
+        // Subscribe to the OnDartThrown event
+        DartThrower.OnDartThrown += substractDart;
     }
 
     // Constructor to initialize the player with a name and starting score
@@ -30,4 +37,15 @@ public class Player : MonoBehaviour
     {
         score -= points; // In darts, you usually subtract points from the score
     }
+
+    public void resetDarts()
+    {
+        dartsLeft = 3; // Reset the number of darts the player has left
+    }
+
+    public void substractDart()
+    {
+        dartsLeft--; // Subtract one dart from the player's darts left
+    }
+    
 }

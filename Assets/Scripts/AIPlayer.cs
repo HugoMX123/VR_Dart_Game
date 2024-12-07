@@ -5,6 +5,8 @@ public class AIPlayer : MonoBehaviour
     public string name = "AI";
     public int score = 301;
 
+    public int dartsLeft = 3;
+
     public void ResetScore()
     {
         score = 301;
@@ -14,6 +16,7 @@ public class AIPlayer : MonoBehaviour
     {
         score -= points;
     }
+
 
     public void TakeTurn()
     {

@@ -6457,9 +6457,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1465828634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9fcf89b2373944eb23a430a4e300d7, type: 3}
+  m_Script: {fileID: 11500000, guid: ec50d850ff4fcc6478e873135ad1242f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allLights: []
 --- !u!4 &1465828636
 Transform:
   m_ObjectHideFlags: 0
@@ -6484,9 +6485,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1465828634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48ce360afe9e3fb4b9b5dd2768eccd82, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f5124288e2803540be5c84464b1e9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allParticles: []
 --- !u!1001 &1468459117
 PrefabInstance:
   m_ObjectHideFlags: 0
