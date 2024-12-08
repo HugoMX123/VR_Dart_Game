@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1984306937912325678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2025563261218401396}
+  - component: {fileID: 701259401700663978}
+  - component: {fileID: 2367989918810513579}
+  m_Layer: 0
+  m_Name: AIPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2025563261218401396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984306937912325678}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0002689876, y: 0.99981636, z: 0.016439788, w: -0.009841863}
+  m_LocalPosition: {x: 0.234, y: 1.804, z: -2.674}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -1.884, y: 181.128, z: 0.012}
+--- !u!114 &701259401700663978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984306937912325678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e694e7af18390a54b95cb9ae0f7ea923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: AI
+  score: 301
+  dartsLeft: 0
+  dartScores: 
+--- !u!114 &2367989918810513579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984306937912325678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466ecd20fe9229b46b9a8d1913489c16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dartPrefab: {fileID: 962310285195973561, guid: c587e45a9e169cc488d09b4ccee02c59, type: 3}
+  throwPoint: {fileID: 2025563261218401396}
+  throwForce: 800
+  throwRotation: {x: 0, y: 180, z: 0}
+  playerRotation: {x: 0, y: 0, z: 0, w: 0}
+  throwBoardRadius: 0
+  dartCPULevel: 1
+  delayBetweenThrows: 0.5

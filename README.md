@@ -14,3 +14,6 @@ Make sure you have the following installed:
 - [Unity](https://unity.com/) (version used in this project: `2022.3.19f1` or above)
 - [TextMeshPro](https://assetstore.unity.com/packages/essentials/beta-projects/textmesh-pro-84126) (for UI text)
 - [Pirate Tavern from Unity Asset Store] (https://assetstore.unity.com/packages/3d/environments/fantasy/pirate-tavern-113463)
+
+Maybe this one is not neccesary to download but just in case
+-[FREE - Modular Character - Fantasy RPG Human Male](https://assetstore.unity.com/packages/3d/characters/humanoids/humans/free-modular-character-fantasy-rpg-human-male-228952)
