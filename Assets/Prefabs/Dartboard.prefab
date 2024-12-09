@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4533476097167316648
+--- !u!1 &6188199568830125329
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4043015400156814844}
-  - component: {fileID: 322089449836090173}
-  - component: {fileID: 4611961836941775463}
-  - component: {fileID: -8613962043834922465}
+  - component: {fileID: 6769866319067710102}
+  - component: {fileID: 6228022630498653844}
+  - component: {fileID: 8786131325290240890}
+  - component: {fileID: 1449286192626029052}
   m_Layer: 0
   m_Name: Dartboard
   m_TagString: Dartboard
@@ -19,66 +19,77 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4043015400156814844
+--- !u!4 &6769866319067710102
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4533476097167316648}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 6188199568830125329}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.15099978, y: 1.62, z: -6.614}
+  m_LocalScale: {x: 1.18, y: 1.18, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3877001086102577129}
+  - {fileID: 4805626123939171100}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &322089449836090173
+--- !u!114 &6228022630498653844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4533476097167316648}
+  m_GameObject: {fileID: 6188199568830125329}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9867e1bd2e993344939dc083f56fe29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   invertAngle: 0
---- !u!65 &4611961836941775463
+  areaHit: 0
+--- !u!65 &8786131325290240890
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4533476097167316648}
+  m_GameObject: {fileID: 6188199568830125329}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 0.8, y: 0.8, z: 0.03}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-8613962043834922465
+--- !u!114 &1449286192626029052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4533476097167316648}
+  m_GameObject: {fileID: 6188199568830125329}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9266bff1a6f9044e9915378d011c821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &3622977190352648194
+  DartboardGO: {fileID: 6188199568830125329}
+--- !u!1001 &4988785533854821623
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4043015400156814844}
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6769866319067710102}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 80bb73188732ee041860435c588bb622, type: 3}
       propertyPath: m_RootOrder
@@ -141,9 +152,12 @@ PrefabInstance:
       value: 11721_darboard_V4_L3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80bb73188732ee041860435c588bb622, type: 3}
---- !u!4 &3877001086102577129 stripped
+--- !u!4 &4805626123939171100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 80bb73188732ee041860435c588bb622, type: 3}
-  m_PrefabInstance: {fileID: 3622977190352648194}
+  m_PrefabInstance: {fileID: 4988785533854821623}
   m_PrefabAsset: {fileID: 0}
