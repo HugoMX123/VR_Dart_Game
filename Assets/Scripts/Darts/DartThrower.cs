@@ -38,7 +38,7 @@ public class DartThrower : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(throwRotation);
 
         // Instantiate the dart at the throw point with the correct rotation
-        GameObject dart = Instantiate(dartPrefab, throwPoint.position + new Vector3(0, UnityEngine.Random.Range(0.0f, 0.5f), 0), rotation * playerRotation);
+        GameObject dart = Instantiate(dartPrefab, throwPoint.position + new Vector3(0, UnityEngine.Random.Range(0.6f, 0.8f), 0), rotation * playerRotation);
 
         // Add force to the dart's Rigidbody to simulate the throw
         Rigidbody rb = dart.GetComponent<Rigidbody>();

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Leap;
+using System;
 
 public class DartMove : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class DartMove : MonoBehaviour
 
     public GameObject handTracker;
 
+    public static event Action OnDartThrown;
 
     void Start()
     {
@@ -39,9 +41,9 @@ public class DartMove : MonoBehaviour
         useAimMode = false;
         useAdaptativeForce = false;
         
-        gravityUnit = 1.3f; //1.035f;
-        gravity = 7.0f ;//2.5f;
-        defaultThrowForce = 110; //55
+        gravityUnit = 1.035f; //1.035f;
+        gravity = 2.5f ;//2.5f;
+        defaultThrowForce = 30; //55
 
         throwForce = defaultThrowForce;
 
@@ -117,6 +119,7 @@ public class DartMove : MonoBehaviour
         rb.isKinematic = false;
         isFlying = true;
         dGenerator.weCanGenerate = true;
+        OnDartThrown?.Invoke(); // Event
     }
 
     private void ThrowDart()
@@ -132,7 +135,7 @@ public class DartMove : MonoBehaviour
             throwDirection = (- transform.forward).normalized * throwForce + gravity * new Vector3(0, -1, 0); //- transform.up is actually the "forward" of the dart
         }
         else{
-            throwDirection = new Vector3(0, 0.20f, -1).normalized * throwForce + gravity * new Vector3(0, -1, 0);
+            throwDirection = new Vector3(0, 0.25f, -1).normalized * throwForce + gravity * new Vector3(0, -1, 0);
         }
         rb.AddForce(throwDirection);
     }

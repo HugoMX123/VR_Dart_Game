@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         DartboardGO.GetComponent<Dartboard>().OnHit += addDartScore;
+        Dart.OnDartHit += addDartScore;
     }
 
     public void ResetPlayers()

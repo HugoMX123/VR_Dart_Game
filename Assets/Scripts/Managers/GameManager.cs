@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
 
     // event when the game ends
-    public  event Action<PlayerType> OnWeGotAWinner;
+    public event Action<PlayerType> OnWeGotAWinner;
     
 
     public GameMode currentMode = GameMode.Practice;
@@ -30,11 +30,16 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         DartboardGO.GetComponent<Dartboard>().OnHit += DartHit;
+        Dart.OnDartHit += DartHit;
         // SUBSCRIBE TO METHOD WHEN GETTING ZERO POINTS FOR HITTING A HORRIBLE THROW (Colliders on room)
         uiManager.hideAllWins();
         StartGame();
     }
 
+
+    private void suscribeDart(Dart dart){
+        //dart.GetComponent<Dart>().stickTheDart += DartHit;
+    }
 
     public void StartGame()
     {

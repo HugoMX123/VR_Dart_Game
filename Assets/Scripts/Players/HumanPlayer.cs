@@ -14,6 +14,7 @@ public class HumanPlayer : Player
 
         // Subscribe to the OnDartThrown event
         DartThrower.OnDartThrown += SubtractDart;
+        DartMove.OnDartThrown += SubtractDart;
 
         
     }
