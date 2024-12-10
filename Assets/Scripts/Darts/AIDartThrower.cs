@@ -10,6 +10,7 @@ public class AIDartThrower : MonoBehaviour
     // Rotation of the dart when thrown
     public Vector3 throwRotation;
     public Quaternion playerRotation;
+    public Player aiPlayer;
     public static event Action OnAIDartThrown;
     public float throwBoardRadius;
     public int dartCPULevel;
@@ -21,12 +22,19 @@ public class AIDartThrower : MonoBehaviour
         throwPoint = this.transform;
     }
 
+    void Update()
+    {
+        playerRotation = transform.rotation;
+        // Check if spacebar is pressed
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            StartThrowingDarts();
+        }
+    }
 
-
-    public void  StartThrowingDarts()
+    public void StartThrowingDarts()
     {
         StartCoroutine(ThrowDartsWithDelay());
-        Debug.Log("AI is throwing darts");
     }
 
     // Coroutine to throw darts with a delay between throws
@@ -54,26 +62,117 @@ public class AIDartThrower : MonoBehaviour
 
     void ThrowDartCPU()
     {
-        Quaternion randomRotation = CalculateTargetPosition();
+        float currentAiScore = aiPlayer.getScore();
+        Quaternion doubleOutCorrector = Quaternion.identity;
 
-        Quaternion currentRotation = transform.rotation;
-
-        Quaternion newRotation = currentRotation * randomRotation;
-
-        Quaternion rotation = Quaternion.Euler(throwRotation);
-
-        GameObject dart = Instantiate(dartPrefab, throwPoint.position, rotation * playerRotation);
-
-        Rigidbody rb = dart.GetComponent<Rigidbody>();
-        if (rb != null)
+        if(currentAiScore <= 50)
         {
-            transform.rotation = newRotation;
-            rb.AddForce(throwPoint.forward * throwForce);
-            this.transform.rotation = currentRotation;
+            dartCPULevel = 3;
         }
 
-         OnAIDartThrown?.Invoke();
+        if(currentAiScore <= 40) 
+        {
+            doubleOutCorrector = getCorrectionAngle();
+        }
+        
+            Quaternion randomRotation = CalculateTargetPosition();
+
+            Quaternion currentRotation = transform.rotation;
+
+            Quaternion newRotation = currentRotation * randomRotation * doubleOutCorrector;
+
+            Quaternion rotation = Quaternion.Euler(throwRotation);
+
+            GameObject dart = Instantiate(dartPrefab, throwPoint.position, rotation * playerRotation);
+
+            Rigidbody rb = dart.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                transform.rotation = newRotation;
+                rb.AddForce(throwPoint.forward * throwForce);
+                this.transform.rotation = currentRotation;
+            }
+
+            OnAIDartThrown?.Invoke();
+        
        
+    }
+
+    Quaternion getCorrectionAngle() 
+    {
+        int currentScore = aiPlayer.getScore();
+
+        Quaternion rotation = Quaternion.identity;
+
+        // Map the score to specific quaternion rotations
+        switch (currentScore)
+        {
+            case 40: //20
+                rotation = Quaternion.Euler(-5f, 0f, 0f);
+                break;
+            case 38: //19
+                rotation = Quaternion.Euler(4.9f, -2f, 0f);
+                break;
+            case 36: //18
+                rotation = Quaternion.Euler(-4.5f, 3.5f, 0f);
+                break;
+            case 34: //17
+                rotation = Quaternion.Euler(4.9f, 2f, 0f);
+                break;
+            case 32: //16
+                rotation = Quaternion.Euler(0f, -5f, 0f);
+                break;
+            case 30: //15
+                rotation = Quaternion.Euler(0f, -5f, 0f);
+                break;
+            case 28: //14
+                rotation = Quaternion.Euler(-2f, -4.9f, 0f);
+                break;  
+            case 26: //13
+                rotation = Quaternion.Euler(-2f, 4.9f, 0f);
+                break;
+            case 24: //12
+                rotation = Quaternion.Euler(-4.5f, -3.5f, 0f);
+                break;
+            case 22: //11
+                rotation = Quaternion.Euler(0f, -5f, 0f);
+                break;
+            case 20: //10
+                rotation = Quaternion.Euler(2f, 4.9f, 0f);
+                break;
+            case 18: //9
+                rotation = Quaternion.Euler(0f, -5f, 0f);
+                break;      
+            case 16: //8
+                rotation = Quaternion.Euler(2f, -4.9f, 0f);
+                break;  
+            case 14: //7
+                rotation = Quaternion.Euler(4.5f, -3.5f, 0f);
+                break;      
+            case 12: //6
+                rotation = Quaternion.Euler(0f, 5f, 0f);
+                break;    
+            case 10: //5
+                rotation = Quaternion.Euler(-4.9f, -2f, 0f);
+                break;   
+            case 8: //4
+                rotation = Quaternion.Euler(0f, -5f, 0f);
+                break;   
+            case 6: //3
+                rotation = Quaternion.Euler(5f, 0f, 0f);
+                break;                                                                                                                                                                                                       
+            case 4: //2
+                rotation = Quaternion.Euler(4.5f, 3.5f, 0f);
+                break;   
+            case 2: //1
+                rotation = Quaternion.Euler(-4.9f, 2f, 0f);
+                break;                                   
+            default: // in case it's odd
+                rotation = Quaternion.Euler(-5f, 0f, 0);
+                break;
+        }
+
+        return rotation;
     }
 
 

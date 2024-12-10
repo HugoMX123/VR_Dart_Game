@@ -24,10 +24,10 @@ public class ModeSelector : MonoBehaviour
             DartGenerator.useAdaptativeForce = !DartGenerator.useAdaptativeForce;
             
             if (DartGenerator.useAdaptativeForce){
-                forceModeText.text = "Constant";
+                forceModeText.text = "Manual";
             }
             else {
-                forceModeText.text = "Automatic";
+                forceModeText.text = "Constant";
             }
         }
     }

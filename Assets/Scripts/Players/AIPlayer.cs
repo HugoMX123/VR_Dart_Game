@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AIPlayer : Player
 {
-    public AIPlayer(string playerName = "AI", int startingScore = 301) : base(playerName, startingScore) { }
+    public AIPlayer(string playerName = "AI", int startingScore=301) : base(playerName, startingScore) { }
     public AIDartThrower aiDartThrower;
 
     void Start()

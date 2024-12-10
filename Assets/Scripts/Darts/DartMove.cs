@@ -82,7 +82,7 @@ public class DartMove : MonoBehaviour
                 
                 if (useAdaptativeForce){
                     Vector3 handVelocity = hand.PalmVelocity;
-                    throwForce = (Mathf.Abs(handVelocity[0])+Mathf.Abs(handVelocity[1])+Mathf.Abs(handVelocity[2]))   * defaultThrowForce;
+                    throwForce = (Mathf.Abs(handVelocity[0])+Mathf.Abs(handVelocity[1])+Mathf.Abs(handVelocity[2]))/2   * defaultThrowForce;
                     Debug.Log("throwForce: " + throwForce + "multiplier: " + Mathf.Abs(handVelocity[0])+Mathf.Abs(handVelocity[1])+Mathf.Abs(handVelocity[2]));
                 }
                 ReleaseDart();

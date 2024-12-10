@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public int dartsLeft = 3;
     public List<DartScore> dartScores = new List<DartScore>();
 
-    public Player(string playerName, int startingScore = 301)
+    public Player(string playerName, int startingScore=301)
     {
         name = playerName;
         score = startingScore;

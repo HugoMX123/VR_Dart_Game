@@ -31,6 +31,8 @@ public class PlayerManager : MonoBehaviour
 
     public void SwitchTurn()
     {
+        DestroyAllWithName("GeneratedDart(Clone)");
+
         // Toggle between Human and AI
         currentPlayerType = currentPlayerType == PlayerType.Human ? PlayerType.AI : PlayerType.Human;
 
@@ -88,6 +90,21 @@ public class PlayerManager : MonoBehaviour
         else
         {
             aiPlayer.AddDartScore(points, areaHit);
+        }
+    }
+
+    public void DestroyAllWithName(string name)
+    {
+        // Find all GameObjects in the scene
+        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+        
+        // Loop through all objects and destroy those that match the name
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.name == name)
+            {
+                Destroy(obj);
+            }
         }
     }
  

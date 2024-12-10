@@ -3624,15 +3624,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4321441900366872, guid: 0c691f432d9dc8540beda8632483c426, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7095426
+      value: 1.77
       objectReference: {fileID: 0}
     - target: {fileID: 4321441900366872, guid: 0c691f432d9dc8540beda8632483c426, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1856596
+      value: 1.052
       objectReference: {fileID: 0}
     - target: {fileID: 4321441900366872, guid: 0c691f432d9dc8540beda8632483c426, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.525004
+      value: -3.733
       objectReference: {fileID: 0}
     - target: {fileID: 4321441900366872, guid: 0c691f432d9dc8540beda8632483c426, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4837,49 +4837,53 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 701259401700663978, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
+      propertyPath: score
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1984306937912325678, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
       propertyPath: m_Name
       value: AIPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 2025563261218401396, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.614
+      value: 2.524
       objectReference: {fileID: 0}
     - target: {fileID: 2025563261218401396, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.804
+      value: 1.626
       objectReference: {fileID: 0}
     - target: {fileID: 2025563261218401396, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.674
+      value: -2.84
       objectReference: {fileID: 0}
     - target: {fileID: 2025563261218401396, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.009841863
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2025563261218401396, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0002689876
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2025563261218401396, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99981636
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2025563261218401396, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.016439788
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2025563261218401396, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -1.884
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2025563261218401396, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 181.128
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 2025563261218401396, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.012
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2367989918810513579, guid: 309a6c4df092ce7478cfde9d6f673503, type: 3}
@@ -4912,6 +4916,7 @@ MonoBehaviour:
   throwForce: 800
   throwRotation: {x: 0, y: 180, z: 0}
   playerRotation: {x: 0, y: 0, z: 0, w: 0}
+  aiPlayer: {fileID: 905990320}
   throwBoardRadius: 0
   dartCPULevel: 3
   delayBetweenThrows: 4
@@ -7386,7 +7391,7 @@ MonoBehaviour:
   playerManager: {fileID: 1371800669}
   scoreboard: {fileID: 1500273700}
   uiManager: {fileID: 360247883}
-  currentMode: 0
+  currentMode: 1
 --- !u!1 &1387895341
 GameObject:
   m_ObjectHideFlags: 0
