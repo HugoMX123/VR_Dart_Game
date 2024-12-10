@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Darts\Dart.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Other\Teleport.cs" />
+    <Compile Include="Assets\Scripts\Managers\ModeSelector.cs" />
     <Compile Include="Assets\Scripts\Darts\DartGenerator.cs" />
     <Compile Include="Assets\Scripts\Testing\DisableAllLights.cs" />
     <Compile Include="Assets\Mini First Person Controller\Scripts\Components\Zoom.cs" />

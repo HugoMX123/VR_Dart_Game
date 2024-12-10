@@ -17,6 +17,9 @@ public class DartGenerator : MonoBehaviour
     public GameObject handTracker;
     public GameObject debug;
 
+    public static bool useAimMode;
+    public static bool useAdaptativeForce; // moving the hand too fast makes the leapmotion lost the tracking
+
     void Start()
     {
         pickupDistance = 0.12f;
@@ -30,7 +33,6 @@ public class DartGenerator : MonoBehaviour
 
     void Update(){
         Frame frame = leapController.Frame();
-
         if (frame.Hands.Count > 0){
             Hand hand = frame.Hands[0];
 
@@ -55,8 +57,11 @@ public class DartGenerator : MonoBehaviour
 
     void GenerateNewDart(){
         GameObject newDart = Instantiate(dartPrefab, transform.position, Quaternion.identity);
-        newDart.GetComponent<DartMove>().dGenerator = this;
-        newDart.GetComponent<DartMove>().handTracker = handTracker;
+        DartMove dm = newDart.GetComponent<DartMove>();
+        dm.dGenerator = this;
+        dm.handTracker = handTracker;
+        dm.useAimMode = useAimMode;
+        dm.useAdaptativeForce = useAdaptativeForce;
         lastGeneratedDart = newDart;
         Debug.Log("Generated new dart");
     }

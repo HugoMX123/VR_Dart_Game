@@ -37,9 +37,6 @@ public class DartMove : MonoBehaviour
 
         isFlying = false;
         isPickedUp = false;
-
-        useAimMode = false;
-        useAdaptativeForce = false;
         
         gravityUnit = 1.035f; //1.035f;
         gravity = 2.5f ;//2.5f;
