@@ -49,6 +49,11 @@ public class Player : MonoBehaviour
         return score;
     }
 
+    public void setNumDarts(int numDarts) 
+    {
+        dartsLeft = numDarts;
+    }
+
     public void AddDartScore(int points, scoreArea areaHit)
     {
         DartScore dartScore = new DartScore(points, areaHit);

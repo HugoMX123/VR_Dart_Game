@@ -45,19 +45,27 @@ public class AIDartThrower : MonoBehaviour
         ThrowDartCPU();
         yield return new WaitForSeconds(delayBetweenThrows); 
 
-        Debug.Log("First dart thrown");
+        int lastThrowScore = aiPlayer.dartScores[aiPlayer.dartScores.Count - 1].score;
+        Debug.Log("First dart thrown:" + lastThrowScore);
 
-        // Second throw
-        ThrowDartCPU();
-        yield return new WaitForSeconds(delayBetweenThrows);
+        if (aiPlayer.dartsLeft > 0) 
+        {
+            ThrowDartCPU();
+            yield return new WaitForSeconds(delayBetweenThrows);
 
-        Debug.Log("Second dart thrown"); 
+            lastThrowScore = aiPlayer.dartScores[aiPlayer.dartScores.Count - 1].score;
+            Debug.Log("Second dart thrown: " + lastThrowScore); 
 
-        // Third throw
-        ThrowDartCPU();
-        yield return new WaitForSeconds(delayBetweenThrows); 
+            if(aiPlayer.dartsLeft > 0) 
+            {
+                ThrowDartCPU();
+                yield return new WaitForSeconds(delayBetweenThrows); 
 
-        Debug.Log("Third dart thrown");
+                lastThrowScore = aiPlayer.dartScores[aiPlayer.dartScores.Count - 1].score;
+                Debug.Log("Third dart thrown: " + lastThrowScore);
+            }
+        }
+
     }
 
     void ThrowDartCPU()
@@ -74,26 +82,26 @@ public class AIDartThrower : MonoBehaviour
         {
             doubleOutCorrector = getCorrectionAngle();
         }
-        
-            Quaternion randomRotation = CalculateTargetPosition();
 
-            Quaternion currentRotation = transform.rotation;
+        Quaternion randomRotation = CalculateTargetPosition();
 
-            Quaternion newRotation = currentRotation * randomRotation * doubleOutCorrector;
+        Quaternion currentRotation = transform.rotation;
 
-            Quaternion rotation = Quaternion.Euler(throwRotation);
+        Quaternion newRotation = currentRotation * randomRotation * doubleOutCorrector;
 
-            GameObject dart = Instantiate(dartPrefab, throwPoint.position, rotation * playerRotation);
+        Quaternion rotation = Quaternion.Euler(throwRotation);
 
-            Rigidbody rb = dart.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                transform.rotation = newRotation;
-                rb.AddForce(throwPoint.forward * throwForce);
-                this.transform.rotation = currentRotation;
-            }
+        GameObject dart = Instantiate(dartPrefab, throwPoint.position, rotation * playerRotation);
 
-            OnAIDartThrown?.Invoke();
+        Rigidbody rb = dart.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            transform.rotation = newRotation;
+            rb.AddForce(throwPoint.forward * throwForce);
+            this.transform.rotation = currentRotation;
+        }
+
+        OnAIDartThrown?.Invoke();
         
        
     }
@@ -168,7 +176,7 @@ public class AIDartThrower : MonoBehaviour
                 rotation = Quaternion.Euler(-4.9f, 2f, 0f);
                 break;                                   
             default: // in case it's odd
-                rotation = Quaternion.Euler(-5f, 0f, 0);
+                rotation = Quaternion.Euler(-4f, 1.5f, 0f);
                 break;
         }
 
@@ -205,6 +213,7 @@ public class AIDartThrower : MonoBehaviour
 
         // Create a small rotation using Euler angles (degrees)
         Quaternion randomRotation = Quaternion.Euler(randomRotationX, randomRotationY, randomRotationZ);
+        //Quaternion randomRotation = Quaternion.Euler(0f, 0f, 0f);
 
         return randomRotation;
     }

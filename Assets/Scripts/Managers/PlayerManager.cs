@@ -39,6 +39,8 @@ public class PlayerManager : MonoBehaviour
         //Check whos turns it is and reset darts
         if(currentPlayerType == PlayerType.Human)
         {
+            // AI should stop thowing darts
+            aiPlayer.setNumDarts(0);
             // Teleport the human player to the starting position
             HumanPlayerGO.GetComponent<HumanPlayer>().teleportToPlay();
             AICharacterGO.GetComponent<TeleportAiCharacter>().TeleportToWait();
